@@ -17,9 +17,9 @@ local set_autoformat = function(pattern, bool_val)
     })
 end
 
-set_autoformat({ "java" }, true)
+set_autoformat({ "java" }, false)
 -- set_autoformat({ "cpp" }, true)
--- set_autoformat({ "fish" }, false)
+set_autoformat({ "sql" }, false)
 -- set_autoformat({ "lua" }, true)
 set_autoformat({ "dart" }, false)
 -- set_autoformat({ "yaml" }, false)
@@ -47,6 +47,11 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "sql", -- Only activates for SQL files
     callback = function()
-        vim.keymap.set("n", "<leader>h", ":normal vip<CR><PLUG>(DBUI_ExecuteQuery)", { buffer = true })
+        vim.keymap.set(
+            "n",
+            "<leader>h",
+            ":normal vip<CR><PLUG>(DBUI_ExecuteQuery)",
+            { desc = "Execute SQL query", buffer = true }
+        )
     end,
 })

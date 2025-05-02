@@ -82,8 +82,7 @@ return {
         "HakonHarnes/img-clip.nvim",
         event = "VeryLazy",
         opts = {
-            -- add options here
-            -- or leave it empty to use the default settings
+            prompt_for_file_name = false,
         },
         keys = {
             -- suggested keymap

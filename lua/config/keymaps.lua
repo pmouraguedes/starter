@@ -23,3 +23,22 @@ vim.keymap.set("i", "<C-a>", "<ESC><S-i>", { silent = true })
 -- terminal mode mappings
 vim.keymap.set("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true })
 vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
+
+vim.keymap.set("n", "<leader>fa", function()
+    vim.fn.setreg("+", vim.fn.expand("%:p"))
+    print("Copied path: " .. vim.fn.expand("%:p"))
+end, { desc = "Copy full path to clipboard" })
+
+vim.keymap.set("n", "<leader>L", function()
+    -- vim.cmd("DBUI")
+    -- vim.cmd("wincmd l")
+    vim.cmd("DBUIFindBuffer")
+    -- vim.defer_fn(function()
+    --     vim.cmd("DBUIFindBuffer")
+    -- end, 10000)
+end, { desc = "Load dadbod buffer" })
+
+-- fzf-lua live grep
+vim.keymap.set("n", "<leader>se", function()
+    vim.cmd("FzfLua live_grep")
+end, { desc = "FzfLua live grep" })
