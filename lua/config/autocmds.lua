@@ -51,7 +51,16 @@ vim.api.nvim_create_autocmd("FileType", {
             "n",
             "<leader>h",
             ":normal vip<CR><PLUG>(DBUI_ExecuteQuery)",
-            { desc = "Execute SQL query", buffer = true }
+            { desc = "Execute SQL query with dadbod", buffer = true }
         )
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "sql", -- Only activates for SQL files
+    callback = function()
+        vim.keymap.set("n", "<leader>L", function()
+            vim.cmd("DBUIFindBuffer")
+        end, { desc = "Load dadbod buffer", buffer = true })
     end,
 })

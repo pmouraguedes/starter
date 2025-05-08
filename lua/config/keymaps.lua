@@ -29,15 +29,6 @@ vim.keymap.set("n", "<leader>fa", function()
     print("Copied path: " .. vim.fn.expand("%:p"))
 end, { desc = "Copy full path to clipboard" })
 
-vim.keymap.set("n", "<leader>L", function()
-    -- vim.cmd("DBUI")
-    -- vim.cmd("wincmd l")
-    vim.cmd("DBUIFindBuffer")
-    -- vim.defer_fn(function()
-    --     vim.cmd("DBUIFindBuffer")
-    -- end, 10000)
-end, { desc = "Load dadbod buffer" })
-
 -- fzf-lua live grep
 vim.keymap.set("n", "<leader>se", function()
     vim.cmd("FzfLua live_grep")
