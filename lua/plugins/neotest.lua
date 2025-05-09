@@ -7,6 +7,11 @@ return {
     {
         "nvim-neotest/neotest",
         event = "VeryLazy",
-        opts = { adapters = { "neotest-java" } },
+        opts = {
+            adapters = {
+                "neotest-java",
+                "neotest-golang",
+            },
+        },
     },
 }
