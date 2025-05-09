@@ -1,7 +1,9 @@
 return {
     {
         "folke/snacks.nvim",
-        ---@type snacks.Config
+        dependencies = {
+            { "MaximilianLloyd/ascii.nvim", dependencies = { "MunifTanjim/nui.nvim" } }, -- For ASCII art
+        },
         opts = {
             picker = {
                 formatters = {
@@ -28,6 +30,38 @@ return {
                 -- refer to the configuration section below
                 win = {
                     height = 0.9,
+                },
+            },
+            dashboard = {
+                enabled = true,
+                preset = {
+                    header = table.concat(require("ascii").get_random_global(), "\n"),
+                    -- header = table.concat(title, "\n"),
+                    --                 header = [[
+                    --             .-"""-.
+                    --            '       \
+                    --           |,.  ,-.  |
+                    --           |()L( ()| |
+                    --           |,'  `".| |
+                    --           |.___.',| `
+                    --          .j `--"' `  `.
+                    --         / '        '   \
+                    --        / /          `   `.
+                    --       / /            `    .
+                    --      / /              l   |
+                    --     . ,               |   |
+                    --     ,"`.             .|   |
+                    --  _.'   ``.          | `..-'l
+                    -- |       `.`,        |      `.
+                    -- |         `.    __.j         )
+                    -- |__        |--""___|      ,-'
+                    --    `"--...,+""""   `._,.-' mh
+                    --                 ]],
+                },
+                sections = {
+                    { section = "header" },
+                    { section = "keys", gap = 1, padding = 1 },
+                    { section = "startup" },
                 },
             },
         },
