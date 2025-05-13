@@ -20,7 +20,7 @@ else
         lazy = false,
         priority = 1000,
         opts = {
-            transparent = true,
+            transparent = false,
             dim = true,
         },
     }
@@ -28,6 +28,7 @@ end
 
 return {
     colorscheme_plugin_table,
+    -- { "folke/tokyonight.nvim" },
     {
         "LazyVim/LazyVim",
         opts = {
