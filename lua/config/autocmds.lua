@@ -18,11 +18,11 @@ local set_autoformat = function(pattern, bool_val)
 end
 
 set_autoformat({ "java" }, false)
--- set_autoformat({ "cpp" }, true)
+set_autoformat({ "cpp" }, false)
 set_autoformat({ "sql" }, false)
 -- set_autoformat({ "lua" }, true)
 set_autoformat({ "dart" }, false)
--- set_autoformat({ "yaml" }, false)
+set_autoformat({ "go" }, false)
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "dart",
