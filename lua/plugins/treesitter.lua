@@ -3,7 +3,8 @@ return {
         "nvim-treesitter/nvim-treesitter",
         opts = {
             auto_install = true,
-            ensure_installed = { "dart", "c3" },
+            ensure_installed = { "dart" },
+            -- ensure_installed = { "dart", "c3" },
 
             parser_install_info = {
                 c3 = {
