@@ -15,36 +15,14 @@ return {
                     filetypes = { "c", "cpp", "objc", "objcpp" },
                 },
                 pyright = {},
-                jdtls = {
-                    settings = {
-                        java = {
-                            project = {
-                                sourcePaths = {
-                                    "src/main/java",
-                                    "src/test/java",
-                                    "target/generated-sources/protobuf/java",
-                                    "target/generated-sources/annotations",
-                                },
-                            },
-                            format = {
-                                enabled = true,
-                                settings = {
-                                    url = "~/dev/rp-vertical-pos-app-adapter-local/assco-development-settings/intellij/gebit-eclipse-formatter-settings.xml",
-                                    profile = "GEBIT",
-                                },
-                            },
-                            eclipse = {
-                                preferences = {
-                                    ["org.eclipse.jdt.ui.importorder"] = "java;javax;org;com;de.gebit.trend;de.gebit.pos",
-                                },
-                            },
-                        },
-                    },
-                },
+                jdtls = {},
             },
             setup = {
                 clangd = function(_, opts)
                     opts.capabilities.offsetEncoding = { "utf-16" }
+                end,
+                jdtls = function()
+                    return true
                 end,
             },
         },

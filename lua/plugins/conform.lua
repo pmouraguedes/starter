@@ -5,6 +5,7 @@ return {
         formatters_by_ft = {
             markdown = {}, -- No formatters
             sql = { "sqlfluff" },
+            java = {}, -- No formatters
         },
         formatters = {
             ["markdownlint-cli2"] = {

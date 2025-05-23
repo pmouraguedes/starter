@@ -34,6 +34,17 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "java",
+    callback = function()
+        vim.opt_local.tabstop = 4 -- Tabs count as 2 spaces
+        vim.opt_local.shiftwidth = 4 -- Indentation uses 2 spaces
+        vim.opt_local.softtabstop = 4 -- Backspace removes 2 spaces
+        vim.opt_local.expandtab = false -- Use spaces instead of tabs
+        vim.opt_local.formatexpr = "" -- Disable  Neovim's default formatter
+    end,
+})
+
 vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
 -- disable auto conceal of back ticks and annoying stuff like that
