@@ -91,7 +91,51 @@ return {
                 --     detached = false,
                 -- },
             }
+            dap.adapters.bashdb = {
+                type = "executable",
+                command = vim.fn.stdpath("data") .. "/mason/packages/bash-debug-adapter/bash-debug-adapter",
+                name = "bashdb",
+            }
 
+            dap.configurations.sh = {
+                {
+                    type = "bashdb",
+                    request = "launch",
+                    name = "Launch file",
+                    showDebugOutput = true,
+                    pathBashdb = vim.fn.stdpath("data")
+                        .. "/mason/packages/bash-debug-adapter/extension/bashdb_dir/bashdb",
+                    pathBashdbLib = vim.fn.stdpath("data") .. "/mason/packages/bash-debug-adapter/extension/bashdb_dir",
+                    trace = true,
+                    file = "${file}",
+                    program = "${file}",
+                    cwd = "${workspaceFolder}",
+                    pathCat = "cat",
+                    pathBash = "/bin/bash",
+                    pathMkfifo = "mkfifo",
+                    pathPkill = "pkill",
+                    args = {},
+                    argsString = "",
+                    env = {},
+                    terminalKind = "integrated",
+                },
+            }
+            -- dap.configurations.sh = {
+            --     {
+            --         type = "bashdb",
+            --         request = "launch",
+            --         name = "Launch file",
+            --         showDebugOutput = true,
+            --         pathBashdb = "bashdb",
+            --         pathBash = "/bin/bash",
+            --         pathCat = "cat",
+            --         pathMkfifo = "mkfifo",
+            --         pathPkill = "pkill",
+            --         args = {},
+            --         cwd = "${workspaceFolder}",
+            --         program = "${file}",
+            --     },
+            -- }
             dap.configurations.dart = {
                 {
                     type = "dart",
